@@ -50,8 +50,8 @@ ps      3       RUNNING
 ---
 
 ## ⚙️ 실행 환경 및 정보
-*  **OS**: xv6-riscv (window10 wsl)
-* **Emulator**: QEMU [cite: 457]
+*  **OS**: xv6-riscv (Windows 10 WSL)
+* **Emulator**: QEMU 
 
 ---
 
