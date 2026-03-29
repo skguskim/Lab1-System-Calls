@@ -89,3 +89,10 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+uint64
+sys_ps(void) // problem 5 code
+{
+  print_ps();
+  return 0;
+}

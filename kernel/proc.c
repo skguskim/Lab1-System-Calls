@@ -681,3 +681,35 @@ procdump(void)
     printf("\n");
   }
 }
+
+void
+print_ps(void)
+{
+  struct proc *p;
+  char *state_str;
+
+  // 테이블 헤더 출력
+  printf("NAME\tPID\tSTATE\n");
+
+  // NPROC만큼 배열을 순회
+  // NPROC: 최대 프로세스 개수
+  for(p = proc; p < &proc[NPROC]; p++){
+    acquire(&p->lock); // 데이터 꼬임 방지를 위해 Lock 획득
+
+    // 사용 중이지 않은 프로세스는 건너뜀
+    if(p->state != UNUSED){
+      // 상태 값을 문자열로 변환
+      switch(p->state){
+      case SLEEPING: state_str = "SLEEPING"; break;
+      case RUNNABLE: state_str = "RUNNABLE"; break;
+      case RUNNING:  state_str = "RUNNING";  break;
+      case ZOMBIE:   state_str = "ZOMBIE";   break;
+      default:       state_str = "UNKNOWN";  break;
+      }
+      // 요구사항에 맞게 출력 (NAME, PID, STATE)
+      printf("%s\t%d\t%s\n", p->name, p->pid, state_str);
+    }
+
+    release(&p->lock); // 작업 끝났으니 Lock 해제
+  }
+}
