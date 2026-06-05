@@ -18,7 +18,7 @@
 ### 2. Unix command: cp
 * 파일을 복사하는 UNIX `cp` 명령어의 단순화된 버전 구현
 * `O_RDONLY`, `O_CREATE`, `O_WRONLY` 플래그와 `read`, `write` 시스템 콜을 사용하여 파일 데이터 복사
-* **구현 파일:** `user/cp.c` [cite: 41]
+* **구현 파일:** `user/cp.c`
 
 ### 3. RISC-V Privileged Mode & Internal
 * **특권 명령어:** `ecall`(트랩 발생 및 서비스 요청), `sret`(Supervisor 모드 복귀), `mret`(Machine 모드 복귀)의 역할과 동작 방식 분석
